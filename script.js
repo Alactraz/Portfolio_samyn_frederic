@@ -2,29 +2,40 @@ document.addEventListener('DOMContentLoaded', function () {
     // Données des projets
     const projects = [
         {
-            title: "OC-page-d-accueil-agence-voyage-HTML-CSS-Booki",
+            title: "Page d'accueil agence voyage Booki",
             description: "Page d'accueil d'une agence de voyage réalisée avec HTML et CSS.",
-            imageUrl: "https://via.placeholder.com/300x250" // Remplacer par l'URL de l'image réelle
+            imageUrl: "https://via.placeholder.com/300x250", // Remplacer par l'URL de l'image réelle
+            link: "https://github.com/Alactraz/OC-page-d-accueil-agence-voyage-HTML-CSS-Booki"
         },
         {
-            title: "OC-creez_une_page_web_dynamique_en_JS-Sophie_Bluel",
+            title: "Page Web Dynamique JS Sophie Bluel",
             description: "Création d'une page web dynamique avec JavaScript.",
-            imageUrl: "https://via.placeholder.com/300x250" // Remplacer par l'URL de l'image réelle
+            imageUrl: "https://via.placeholder.com/300x250", // Remplacer par l'URL de l'image réelle
+            link: "https://github.com/Alactraz/OC-creez_une_page_web_dynamique_en_JS-Sophie_Bluel"
         },
         {
-            title: "OC-debug-et-optimisation-site-photo-nina-carducci",
+            title: "Optimisation Site Photo Nina Carducci",
             description: "Optimisation et débogage d'un site photo.",
-            imageUrl: "https://via.placeholder.com/300x250" // Remplacer par l'URL de l'image réelle
+            imageUrl: "https://via.placeholder.com/300x250", // Remplacer par l'URL de l'image réelle
+            link: "https://github.com/Alactraz/OC-debug-et-optimisation-site-photo-nina-carducci"
         },
         {
-            title: "OC-creez_application_web_avec_react-kaza",
+            title: "Application Web avec React Kaza",
             description: "Application web créée avec React.",
-            imageUrl: "https://via.placeholder.com/300x250" // Remplacer par l'URL de l'image réelle
+            imageUrl: "https://via.placeholder.com/300x250", // Remplacer par l'URL de l'image réelle
+            link: "https://github.com/Alactraz/OC-creez_application_web_avec_react-kaza"
         },
         {
-            title: "OC-Back-end_site-M.V.G.",
+            title: "Back-end Site M.V.G.",
             description: "Développement du back-end d'un site avec Node.js.",
-            imageUrl: "https://via.placeholder.com/300x250" // Remplacer par l'URL de l'image réelle
+            imageUrl: "https://via.placeholder.com/300x250", // Remplacer par l'URL de l'image réelle
+            link: "https://github.com/Alactraz/OC-Back-end_site-M.V.G."
+        },
+        {
+            title: "Mon Portfolio",
+            description: "Création d'un portfolio",
+            imageUrl: "https://via.placeholder.com/300x250", // Remplacer par l'URL de l'image réelle
+            link: "https://github.com/Alactraz/Portfolio_samyn_frederic"
         }
     ];
 
@@ -43,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         projects.forEach(project => {
             const projectCard = document.createElement('a');
             projectCard.classList.add('project-card');
-            projectCard.href = "#"; // Ajoutez l'URL réelle du projet ici si nécessaire
+            projectCard.href = project.link; // Lien vers le projet
 
             projectCard.innerHTML = `
                 <img src="${project.imageUrl}" alt="${project.title}" class="project-image">
