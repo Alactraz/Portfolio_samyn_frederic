@@ -1,0 +1,197 @@
+/* Couleurs de base inspirées de GGO */
+:root {
+    --bg-color: #1c1c1c; /* Fond sombre */
+    --card-bg-color: #2f2f2f; /* Fond des cartes (projets et compétences) */
+    --highlight-color: #ff4b5c; /* Rouge d'accent pour rappeler GGO */
+    --card-hover-bg-color: #404040; /* Légère teinte plus claire pour le survol des cartes */
+    --text-color: #d1d1d1; /* Texte clair */
+    --shadow-color: rgba(0, 0, 0, 0.5); /* Ombre des cartes */
+    --header-footer-bg-color: #333333; /* Gris plus clair pour le header et footer */
+}
+
+/* Corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--header-footer-bg-color); /* Gris clair pour le header */
+    padding: 10px;
+    z-index: 10;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.header-content .logo {
+    font-size: 1.5em;
+    color: var(--highlight-color);
+}
+
+.header-content .nav-links a {
+    color: var(--text-color);
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+/* Espacement entre le header et la section Projets */
+#projects {
+    margin-top: 30px;
+    padding-top: 80px;  /* Ajout d'un padding pour faire de l'espace sous le header */
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Titre du portfolio */
+h2 {
+    font-size: 2.5em;
+    color: var(--highlight-color);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+/* Section des projets */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Carte de projet */
+.project-card {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    height: 450px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hover sur la carte de projet */
+.project-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--card-hover-bg-color);
+    box-shadow: 0 12px 24px var(--shadow-color);
+}
+
+/* Image du projet */
+.project-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Contenu de la carte */
+.project-content {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Section Mes compétences */
+.competence-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Grille de 5 colonnes */
+    gap: 20px;
+    width: 80%;
+    max-width: 1200px;
+    margin-top: 30px;
+    justify-items: center; /* Centrer les cartes horizontalement */
+}
+
+/* Carte de compétence */
+.competence-item {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    display: flex;
+    flex-direction: column; /* Pour empiler l'image et le texte verticalement */
+    justify-content: center;
+    align-items: center;
+    height: 220px; /* Hauteur fixe */
+    width: 200px; /* Largeur fixe */
+}
+
+/* Hover sur la carte de compétence */
+.competence-item:hover {
+    transform: translateY(-5px);
+    background-color: var(--card-hover-bg-color);
+    box-shadow: 0 12px 24px var(--shadow-color);
+}
+
+/* Image des compétences */
+.competence-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    object-fit: contain; /* Assure que l'image garde ses proportions */
+}
+
+/* Texte dans la carte de compétence */
+.competence-item p {
+    margin: 0; /* Enlever les marges autour du texte */
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    width: 100%;
+    background-color: var(--header-footer-bg-color); /* Gris clair pour le footer */
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .project-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur des écrans plus petits */
+    }
+
+    .competence-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur des écrans plus petits */
+    }
+}
+
+@media (max-width: 768px) {
+    .project-list {
+        grid-template-columns: 1fr; /* 1 colonne sur des écrans encore plus petits */
+    }
+
+    .competence-list {
+        grid-template-columns: 1fr; /* 1 colonne sur des écrans encore plus petits */
+    }
+}
