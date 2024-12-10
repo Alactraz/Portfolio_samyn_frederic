@@ -29,7 +29,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: var(--header-footer-bg-color); /* Gris clair pour le header */
+    background-color: var(--header-footer-bg-color);
     padding: 10px;
     z-index: 10;
     width: 100%;
@@ -54,15 +54,14 @@ header {
     font-size: 1.2em;
 }
 
-/* Espacement entre le header et la section Projets */
+/* Section Projets */
 #projects {
     margin-top: 30px;
-    padding-top: 80px;  /* Ajout d'un padding pour faire de l'espace sous le header */
+    padding-top: 80px; /* Espace sous le header */
     width: 80%;
     max-width: 1200px;
 }
 
-/* Titre du portfolio */
 h2 {
     font-size: 2.5em;
     color: var(--highlight-color);
@@ -71,7 +70,7 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* Section des projets */
+/* Liste des projets */
 .project-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -104,11 +103,12 @@ h2 {
     box-shadow: 0 12px 24px var(--shadow-color);
 }
 
-/* Image du projet */
+/* Image des projets */
 .project-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+    width: 300px; /* Largeur fixe */
+    height: 250px; /* Hauteur fixe */
+    object-fit: cover; /* Remplit l'espace sans déformation */
+    image-rendering: auto; /* Optimise le rendu */
 }
 
 /* Contenu de la carte */
@@ -120,12 +120,12 @@ h2 {
 /* Section Mes compétences */
 .competence-list {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Grille de 5 colonnes */
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     width: 80%;
     max-width: 1200px;
     margin-top: 30px;
-    justify-items: center; /* Centrer les cartes horizontalement */
+    justify-items: center;
 }
 
 /* Carte de compétence */
@@ -137,11 +137,11 @@ h2 {
     box-shadow: 0 8px 16px var(--shadow-color);
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
     display: flex;
-    flex-direction: column; /* Pour empiler l'image et le texte verticalement */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 220px; /* Hauteur fixe */
-    width: 200px; /* Largeur fixe */
+    height: 220px;
+    width: 200px;
 }
 
 /* Hover sur la carte de compétence */
@@ -156,42 +156,135 @@ h2 {
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
-    object-fit: contain; /* Assure que l'image garde ses proportions */
+    object-fit: contain; /* Préserve le ratio des images */
 }
 
-/* Texte dans la carte de compétence */
+/* Texte des compétences */
 .competence-item p {
-    margin: 0; /* Enlever les marges autour du texte */
+    margin: 0;
     font-size: 1.2em;
     color: var(--text-color);
+}
+
+/* Section À propos */
+#about-me {
+    padding: 50px 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    gap: 20px;
+    width: 90%;
+}
+
+.profile-photo img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--highlight-color);
+    box-shadow: 0 8px 16px var(--shadow-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-photo img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px var(--shadow-color);
+}
+
+.about-text {
+    max-width: 700px;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.about-text h2 {
+    font-size: 2.5em;
+    color: var(--highlight-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
 }
 
 /* Footer */
 footer {
     margin-top: 50px;
     width: 100%;
-    background-color: var(--header-footer-bg-color); /* Gris clair pour le footer */
+    background-color: var(--header-footer-bg-color);
     color: var(--text-color);
     text-align: center;
+    padding: 20px;
+}
+
+/* Contact dans le Footer */
+#contact h3 {
+    font-size: 1.5em;
+    color: var(--highlight-color);
+    margin-bottom: 10px;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-item {
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.contact-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.contact-item:hover {
+    color: var(--highlight-color);
+    transform: scale(1.05);
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
     .project-list {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur des écrans plus petits */
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .competence-list {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur des écrans plus petits */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     .project-list {
-        grid-template-columns: 1fr; /* 1 colonne sur des écrans encore plus petits */
+        grid-template-columns: 1fr;
     }
 
     .competence-list {
-        grid-template-columns: 1fr; /* 1 colonne sur des écrans encore plus petits */
+        grid-template-columns: 1fr;
     }
 }
