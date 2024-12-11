@@ -1,8 +1,7 @@
-/* Couleurs de base inspirées de GGO */
 :root {
     --bg-color: #1c1c1c; /* Fond sombre */
-    --card-bg-color: #2f2f2f; /* Fond des cartes (projets et compétences) */
-    --highlight-color: #ff4b5c; /* Rouge d'accent pour rappeler GGO */
+    --card-bg-color: #2f2f2f; 
+    --highlight-color: #ff4b5c; 
     --card-hover-bg-color: #404040; /* Légère teinte plus claire pour le survol des cartes */
     --text-color: #d1d1d1; /* Texte clair */
     --shadow-color: rgba(0, 0, 0, 0.5); /* Ombre des cartes */
