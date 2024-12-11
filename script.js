@@ -4,38 +4,34 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             title: "Page d'accueil agence voyage Booki",
             description: "Page d'accueil d'une agence de voyage réalisée avec HTML et CSS.",
-            imageUrl: "./images/L2_booki.png", // Remplacer par l'URL de l'image réelle
+            problems: "Rendre le site entièrement responsive pour tous les écrans.",
+            skills: "Maîtrise de la mise en page responsive avec CSS.",
+            imageUrl: "./images/L2_booki.png",
             link: "https://github.com/Alactraz/OC-page-d-accueil-agence-voyage-HTML-CSS-Booki"
-        },
-        {
-            title: "Page Web Dynamique JS Sophie Bluel",
-            description: "Création d'une page web dynamique avec JavaScript.",
-            imageUrl: "./images/L3_sophie_bluel.png", // Remplacer par l'URL de l'image réelle
-            link: "https://github.com/Alactraz/OC-creez_une_page_web_dynamique_en_JS-Sophie_Bluel"
-        },
-        {
-            title: "Optimisation Site Photo Nina Carducci",
-            description: "Optimisation et débogage d'un site photo.",
-            imageUrl: "./images/L4_nina_carducci.png", // Remplacer par l'URL de l'image réelle
-            link: "https://github.com/Alactraz/OC-debug-et-optimisation-site-photo-nina-carducci"
         },
         {
             title: "Application Web avec React Kaza",
             description: "Application web créée avec React.",
-            imageUrl: "./images/L5_kaza.png", // Remplacer par l'URL de l'image réelle
+            problems: "Implémentation des volets déroulants et gestion de l'état.",
+            skills: "Création d'interfaces dynamiques avec React et gestion avancée de l'état.",
+            imageUrl: "./images/L5_kaza.png",
             link: "https://github.com/Alactraz/OC-creez_application_web_avec_react-kaza"
+        },
+        {
+            title: "Optimisation Site Photo Nina Carducci",
+            description: "Optimisation et débogage d'un site photo.",
+            problems: "Trouver les causes des bugs et proposer des solutions.",
+            skills: "Diagnostic précis et correction de bugs dans un environnement complexe.",
+            imageUrl: "./images/L4_nina_carducci.png",
+            link: "https://github.com/Alactraz/OC-debug-et-optimisation-site-photo-nina-carducci"
         },
         {
             title: "Back-end Site M.V.G.",
             description: "Développement du back-end d'un site avec Node.js.",
-            imageUrl: "./images/L6_MVG.png", // Remplacer par l'URL de l'image réelle
+            problems: "Assurer la sécurité des données transmises.",
+            skills: "Mise en œuvre de systèmes d'authentification sécurisés et gestion des données sensibles.",
+            imageUrl: "./images/L6_MVG.png",
             link: "https://github.com/Alactraz/OC-Back-end_site-M.V.G."
-        },
-        {
-            title: "Mon Portfolio",
-            description: "Création d'un portfolio",
-            imageUrl: "https://via.placeholder.com/300x250", // Remplacer par l'URL de l'image réelle
-            link: "https://github.com/Alactraz/Portfolio_samyn_frederic"
         }
     ];
 
@@ -51,20 +47,28 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fonction pour afficher les projets
     function displayProjects() {
         const projectsList = document.getElementById('projects-list');
-        projects.forEach(project => {
-            const projectCard = document.createElement('a');
+        projects.forEach((project, index) => {
+            const projectCard = document.createElement('div');
             projectCard.classList.add('project-card');
-            projectCard.href = project.link; // Lien vers le projet
 
             projectCard.innerHTML = `
                 <img src="${project.imageUrl}" alt="${project.title}" class="project-image">
                 <div class="project-content">
                     <h3>${project.title}</h3>
                     <p>${project.description}</p>
+                    <button class="more-info-btn" data-index="${index}">En savoir plus</button>
                 </div>
             `;
 
             projectsList.appendChild(projectCard);
+        });
+
+        // Ajouter les gestionnaires d'événements pour les boutons "En savoir plus"
+        document.querySelectorAll('.more-info-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const index = this.getAttribute('data-index');
+                openModal(projects[index]);
+            });
         });
     }
 
@@ -82,7 +86,39 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Initialiser l'affichage
+    // Fonction pour ouvrir une modale
+    function openModal(project) {
+        const modal = document.getElementById('project-modal');
+        const modalContent = modal.querySelector('.modal-content');
+
+        modalContent.innerHTML = `
+            <h2>${project.title}</h2>
+            <p><strong>Description :</strong> ${project.description}</p>
+            <p><strong>Problématiques rencontrées :</strong> ${project.problems}</p>
+            <p><strong>Compétences développées :</strong> ${project.skills}</p>
+            <a href="${project.link}" target="_blank" class="modal-link">Voir le projet sur GitHub</a>
+            <button class="close-modal-btn">Fermer</button>
+        `;
+
+        modal.style.display = 'block';
+
+        // Fermer la modale
+        modal.querySelector('.close-modal-btn').addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+    }
+
+    // Initialiser l'affichage des projets et des compétences
     displayProjects();
     displayCompetencies();
 });
+
+// Ajouter une modale dans le HTML
+const modalHTML = `
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <!-- Contenu de la modale généré dynamiquement -->
+        </div>
+    </div>
+`;
+document.body.insertAdjacentHTML('beforeend', modalHTML);
